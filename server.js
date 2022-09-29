@@ -23,6 +23,11 @@ app.get('/greeting/:name', (req, res) => {
     res.send(`<h1>${req.params.name}</h1>`)
 })
 
+app.get('/tip/:total/:tipPercentage' , (req, res) => {
+    const ans = parseInt(req.params.total) + parseInt(req.params.tipPercentage)
+    res.status(200).json({msg: `The answer i ${ans}`})
+})
+
 /* END ROUTES */
 
 
