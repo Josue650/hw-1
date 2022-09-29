@@ -19,14 +19,14 @@ const app = express()
 
 // Mount Routes
 /*Start Routes */
-app.get('/greeting/: Hello ', (req, res) => {
-    res.send(`<h1>${req.params.Hello}</h1>`)
+app.get('/greeting/:name', (req, res) => {
+    res.send(`<h1>${req.params.name}</h1>`)
 })
 
 /* END ROUTES */
 
 
 // Tell the app to listen on a port
-app.listen(3000, () => {
+app.listen(3001, () => {
     console.log('Listening on Port 3000')
 })
