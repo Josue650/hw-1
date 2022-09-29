@@ -24,8 +24,14 @@ app.get('/greeting/:name', (req, res) => {
 })
 
 app.get('/tip/:total/:tipPercentage' , (req, res) => {
-    const ans = parseInt(req.params.total) + parseInt(req.params.tipPercentage)
-    res.status(200).json({msg: `The answer i ${ans}`})
+    const ans = parseInt(req.params.total) * parseInt(req.params.tipPercentage) / 100
+    res.status(200).json({msg: `The tip is ${ans}`})
+})
+
+const arr = Math.random(["It is certain", "It is decidedly so", "Without a doubt", "Yes definitely","You may rely on it", "As I see it yes", "Most likely", "Outlook good","Yes", "Signs point to yes", "Reply hazy try again", "Ask again later","Better not tell you now",
+"Cannot predict now", "Concentrate and ask again","Don't count on it", "My reply is no", "My sources say no","Outlook not so good", "Very doubtful"])
+app.get('/magic', (req, res) => {
+    res.send(`<h1>${req.params.arr}</h1>`)
 })
 
 /* END ROUTES */
@@ -33,5 +39,5 @@ app.get('/tip/:total/:tipPercentage' , (req, res) => {
 
 // Tell the app to listen on a port
 app.listen(3001, () => {
-    console.log('Listening on Port 3000')
+    console.log('Listening on Port 3001')
 })
